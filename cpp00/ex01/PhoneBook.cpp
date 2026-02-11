@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: anruiz-d <anruiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:40:35 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/02/03 17:32:03 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/02/11 19:44:51 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	PhoneBook::show_contact(void) const
 		limit = 8;
 	else
 		limit = count;
-	i = std::stoi(input);
+	i = std::atoi(input.c_str());
 	if (i >= 0 && i < limit)
 		std::cout	<< "Name: "<< contacts[i].get_firstName() << "\n"
 					<< "Last name: " << contacts[i].get_lastName() << "\n"

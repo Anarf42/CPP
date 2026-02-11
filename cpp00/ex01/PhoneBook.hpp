@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: anruiz-d <anruiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 03:21:16 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/02/03 17:24:28 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/02/11 19:46:08 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <cstdlib> //for atoi
 #include "Contact.hpp"
 
 #define	RESET	"\033[0m"
