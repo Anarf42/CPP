@@ -17,22 +17,30 @@
 void	to_replace(std::string fileName, std::string str1, std::string str2)
 {
 	std::ifstream ifs(fileName.c_str());
-	std::string newFile = fileName + ".replace";
-	std::ofstream ofs(newFile.c_str());
-
-	if (!ifs.is_open() && !ofs.is_open())
+	if (!ifs.is_open())
 	{
 		std::cerr << "Impossible to open " << std::endl;
 		return ;
 	}
-	std::string	content;
+	if (ifs.peek())
+	{
+		std::cerr << "The file its empty" << std::endl;
+		return ;
+	}
+	std::string newFile = fileName + ".replace";
+	std::ofstream ofs(newFile.c_str());
+	if (!ofs.is_open())
+	{
+		std::cerr << "Impossible to create " << std::endl;
+		return ;
+	}
 	std::string line;
 	while (std::getline(ifs, line))
 	{
 		size_t pos = line.find(str1);
 		while (pos != std::string::npos)
 		{
-			line.replace(pos, str1.length(), str2);
+			line = line.substr(0, pos) + str2 + line.substr(pos + str1.length());
 			pos = line.find(str1, pos + str2.length());
 		}
 		if (!ifs.eof())
