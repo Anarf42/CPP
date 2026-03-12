@@ -19,8 +19,8 @@
 class Fixed
 {
 	private:
-		int	_fixedNumber;
-		static const int _fractionalBits = 8;
+		int					_fixedNumber;
+		static	const	int	_fractionalBits = 8;
 	public:
 		Fixed();
 		Fixed(const Fixed& copy);
