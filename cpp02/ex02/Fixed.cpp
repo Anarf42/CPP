@@ -21,12 +21,12 @@ Fixed& Fixed::operator=(const Fixed& copy)
 
 Fixed::Fixed(const int parameter)
 {
-	_fixedNumber = parameter << _fractionalBits;
+	_fixedNumber = parameter;
 }
 
 Fixed::Fixed(const float number)
 {
-	_fixedNumber = roundf(number * (1 << _fractionalBits));
+	_fixedNumber = ;
 }
 
 Fixed::~Fixed() 
@@ -47,16 +47,10 @@ void Fixed::setRawBits(int const raw)
 
 float   Fixed::toFloat(void) const
 {
-	return (float)_fixedNumber / (1 << _fractionalBits);
+
 }
 
 int		Fixed::toInt(void) const
 {
-	return _fixedNumber >> _fractionalBits;
-}
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
-{
-	out << fixed.toFloat();
-	return out;
 }
