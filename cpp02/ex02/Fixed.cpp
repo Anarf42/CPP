@@ -21,12 +21,12 @@ Fixed& Fixed::operator=(const Fixed& copy)
 
 Fixed::Fixed(const int parameter)
 {
-	_fixedNumber = parameter;
+	_fixedNumber = parameter << _fractionalBits;
 }
 
 Fixed::Fixed(const float number)
 {
-	_fixedNumber = ;
+	_fixedNumber = roundf(number * (1 << _fractionalBits));
 }
 
 Fixed::~Fixed() 
@@ -47,10 +47,60 @@ void Fixed::setRawBits(int const raw)
 
 float   Fixed::toFloat(void) const
 {
-
+	return (float)_fixedNumber / (1 << _fractionalBits);
 }
 
 int		Fixed::toInt(void) const
 {
-
+	return _fixedNumber >> _fractionalBits;
 }
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return out;
+}
+
+Fixed Fixed::operator+(const Fixed& a) const
+{
+	return Fixed(this->toFloat() + a.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& a) const
+{
+	return Fixed(this->toFloat() - a.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& a) const
+{
+	return Fixed(this->toFloat() * a.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& a) const
+{
+	return Fixed(this->toFloat() / a.toFloat());
+}
+bool Fixed::operator>(const Fixed& b) const
+{
+	return (this->toFloat() > b.toFloat());
+}
+bool Fixed::operator<(const Fixed& b) const
+{
+	return (this->toFloat() < b.toFloat());
+}
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	return ((a > b) ? a : b);
+}
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	return ((a < b) ? a : b);
+}
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return ((a > b) ? a : b);
+}
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return ((a < b) ? a : b);
+}	
