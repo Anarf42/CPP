@@ -6,13 +6,16 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 16:35:09 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/22 17:55:36 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:12:25 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _Name("default"), _Health(10), _Energy(10), _Attack(10){}
+ClapTrap::ClapTrap() : _Name("default"), _Health(10), _Energy(10), _Attack(10)
+{
+	std::cout << "creando constructor claptrap " << _Name << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string& name) : _Name(name), _Health(10), _Energy(10), _Attack(10) {}
 
@@ -33,7 +36,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap() 
+{
+	std::cout << "destruction of Claptrap" << std::endl;
+}
 
 
 void	ClapTrap::attack(const std::string& target)

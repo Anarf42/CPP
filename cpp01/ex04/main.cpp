@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 15:32:03 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/09 17:31:22 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/28 17:26:18 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	to_replace(std::string fileName, std::string str1, std::string str2)
 		std::cerr << "Impossible to open " << std::endl;
 		return ;
 	}
-	if (ifs.peek())
+	if (!ifs.peek())
 	{
 		std::cerr << "The file its empty" << std::endl;
 		return ;
@@ -62,4 +62,3 @@ int	main(int argc, char **argv)
 		to_replace(argv[1], argv[2], argv[3]);
 	return (0);
 }
-

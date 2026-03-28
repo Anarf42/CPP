@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 20:02:18 by anruiz-d          #+#    #+#             */
+/*   Updated: 2026/03/28 20:27:14 by anruiz-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap("default")
@@ -31,7 +43,10 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 	return (*this);
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap() 
+{
+	std::cout << "Destruction of " << GREEN << "ScavTrap" << RESET << std::endl;
+}
 
 void ScavTrap::guardGate(void)
 {

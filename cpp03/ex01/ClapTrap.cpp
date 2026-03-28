@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 16:35:09 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/22 17:55:36 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:05:55 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap() {}
-
+ClapTrap::~ClapTrap() 
+{
+		std::cout << "Destruction of ClapTrap" << std::endl;
+}
 
 void	ClapTrap::attack(const std::string& target)
 {

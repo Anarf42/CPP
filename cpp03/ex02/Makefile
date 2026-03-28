@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/03/28 20:02:06 by anruiz-d          #+#    #+#              #
+#    Updated: 2026/03/28 20:02:06 by anruiz-d         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # --- Project Name --- #
 
 NAME		=	repetitive_work
@@ -10,7 +22,8 @@ DIR_OBJS	=	objs
 
 SRC_FILES	=	main.cpp \
 				ClapTrap.cpp \
-				ScavTrap.cpp
+				ScavTrap.cpp \
+				FragTrap.cpp
 
 # --- Object Files --- #
 

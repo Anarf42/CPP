@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 16:35:13 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/22 17:45:34 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:10:35 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
  # define CLAPTRAP_HPP
 
 #include <iostream>
-#include <string>
 #include <cmath>
+
+#define GREEN	"\033[32m"
+#define RED		"\033[31m"
+#define RESET	"\033[0m"
 
 class ClapTrap
 {

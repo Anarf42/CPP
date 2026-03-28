@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 17:30:07 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/22 16:32:36 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:20:31 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,21 +102,21 @@ Fixed Fixed::operator/(const Fixed& a) const
 	}
 }
 
-
-
-
 bool Fixed::operator>(const Fixed& b) const
 {
 	return (_fixedNumber > b._fixedNumber);
 }
+
 bool Fixed::operator<(const Fixed& b) const
 {
 	return (_fixedNumber < b._fixedNumber);
 }
+
 bool Fixed::operator<=(const Fixed& b) const
 {
 	return (_fixedNumber <= b._fixedNumber);
 }
+
 bool Fixed::operator>=(const Fixed& b) const
 {
 	return (_fixedNumber >= b._fixedNumber);
