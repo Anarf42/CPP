@@ -6,18 +6,29 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 16:35:09 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/28 20:05:55 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/03/29 13:43:43 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _Name("default"), _Health(10), _Energy(10), _Attack(10){}
+ClapTrap::ClapTrap() : _Name("default"), _Health(10), _Energy(10), _Attack(10)
+{
+	std::cout << GREEN << "ClapTrap constructor default has been created" << RESET << std::endl;
+}
 
-ClapTrap::ClapTrap(const std::string& name) : _Name(name), _Health(10), _Energy(10), _Attack(10) {}
+ClapTrap::ClapTrap(const std::string& name) : _Name(name), _Health(10), _Energy(10), _Attack(10) 
+{
+	std::cout << GREEN << "ClapTrap constructor with param has been created" << RESET << std::endl;
+	if (_Name == "ClapTrap1")
+		_color = CYAN;
+	else
+		_color = YELLOW;
+}
 
 ClapTrap::ClapTrap(const ClapTrap& copy) 
 {
+	std::cout << GREEN << "Copy constructor of ClapTrap has been created" << RESET << std::endl;
 	*this = copy;
 }
 
@@ -32,28 +43,32 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 	}
 	return (*this);
 }
-
 ClapTrap::~ClapTrap() 
 {
-		std::cout << "Destruction of ClapTrap" << std::endl;
+	std::cout << RED << "Destructor of ClapTrap has been called" << RESET << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
 	if (_Energy <= 0 || _Health <= 0)
 	{
-		std::cout << _Name << " can't attack" << std::endl;
+		std::cout << _color << _Name << RESET << " can't attack" << std::endl;
 		return ;
 	}
-	std::cout << _Name << " attacks " << target << ", causing " << _Attack << " points of damage!" << std::endl;
+	if (target == "ClapTrap1")
+		_color_target = CYAN;
+	else
+		_color_target = YELLOW;
+	std::cout << _color << _Name << RESET <<  " attacks " << _color_target << target << RESET << ", causing " << _Attack << " points of damage!" << std::endl;
 	_Energy--;
+	std::cout << _color << _Name <<  RESET << " energy has been reduced, actually is " << _Energy << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_Health <= 0)
 		return ;
-	std::cout  << _Name << " receive " << amount << " points of damage!" << std::endl;
+	std::cout << _color << _Name  << RESET <<  " receive " << amount << " points of damage!" << std::endl;
 	if (amount >= (unsigned int)_Health)
 		_Health = 0;
 	else
@@ -64,10 +79,11 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_Energy <= 0 || _Health <= 0)
 	{
-		std::cout << _Name << " can't be repaired" << std::endl;
+		std::cout << _color << _Name << RESET << " can't be repaired" << std::endl;
 		return ;
 	}
-	std::cout << _Name << " repairs itself for " << amount << " hit points" << std::endl;
+	std::cout << _color << _Name << RESET << " repairs itself for " << amount << " hit points" << std::endl;
 	_Health += amount;
 	_Energy--;
+	std::cout << _color << _Name << RESET <<  " energy has been reduced, actually is " << _Energy << std::endl;
 }

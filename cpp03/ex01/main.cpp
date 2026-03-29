@@ -1,4 +1,14 @@
-#include "ScavTrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/29 13:18:51 by anruiz-d          #+#    #+#             */
+/*   Updated: 2026/03/29 13:49:34 by anruiz-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
@@ -19,6 +29,8 @@ int main()
     std::cout << "\n=== Actions ===" << std::endl;
     b.attack("enemy");
     b.guardGate();
+    c.takeDamage(10);
+    b.beRepaired(5);
 
     std::cout << "\n=== Destruction ===" << std::endl;
 
