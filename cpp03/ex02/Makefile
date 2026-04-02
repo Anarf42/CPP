@@ -6,7 +6,7 @@
 #    By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/28 20:02:06 by anruiz-d          #+#    #+#              #
-#    Updated: 2026/03/28 20:02:06 by anruiz-d         ###   ########.fr        #
+#    Updated: 2026/03/29 17:11:36 by anruiz-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ_FILES	=	$(addprefix $(DIR_OBJS)/, $(SRC_FILES:.cpp=.o))
 # --- Compiler and tools --- #
 
 CC			=	c++
-FLAGS		=	-Wall -Werror -Wextra -std=c++98
+FLAGS		=	-Wall -Werror -Wextra -std=c++98 #-MMD -MP
 MKDIR		=	mkdir -p
 RM			=	rm -rf
 
@@ -47,7 +47,7 @@ $(NAME)	:	$(OBJ_FILES)
 
 # -- Object File Rule -- #
 
-$(DIR_OBJS)/%.o: %.cpp
+$(DIR_OBJS)/%.o: %.cpp 
 			$(MKDIR) $(DIR_OBJS)
 			$(CC) $(FLAGS) -c $< -o $@
 
@@ -62,3 +62,5 @@ fclean	:	clean
 re		:	fclean	all
 
 .PHONY	:	all clean fclean re
+
+-include $(OBJ_FILES:.o=.d)
