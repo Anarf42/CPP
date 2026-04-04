@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 17:58:38 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/03/31 20:23:00 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/04/02 22:39:07 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal
         Dog(const Dog& copy); //copy constructor
         Dog& operator=(const Dog& copy); // assignament
         ~Dog();//destructor
-         void	makeSound(void);
+        void	makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/31 18:17:32 by anruiz-d          #+#    #+#              #
-#    Updated: 2026/03/31 18:18:03 by anruiz-d         ###   ########.fr        #
+#    Updated: 2026/04/02 23:40:20 by anruiz-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ DIR_OBJS	=	objs
 SRC_FILES	=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
-				Cat.cpp
+				Cat.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp
 
 # --- Object Files --- #
 

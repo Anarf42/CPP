@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 12:46:59 by codespace         #+#    #+#             */
-/*   Updated: 2026/04/04 14:37:51 by anruiz-d         ###   ########.fr       */
+/*   Created: 2026/04/02 23:28:53 by anruiz-d          #+#    #+#             */
+/*   Updated: 2026/04/02 23:30:27 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
 
-#include "Animal.hpp"
-#include <iostream>
+#ifndef	WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-class Cat : public Animal
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
     private:
     public:
-        Cat();  // default constructor
-        Cat(const std::string& name);  
-        Cat(const Cat& copy); //copy constructor
-        Cat& operator=(const Cat& copy); // assignament
-        ~Cat();//destructor
+        WrongCat();  // default constructor
+        WrongCat(const std::string& name);  
+        WrongCat(const WrongCat& copy); //copy constructor
+        WrongCat& operator=(const WrongCat& copy); // assignament
+        ~WrongCat();//destructor
         void   makeSound(void) const;
 };
 
