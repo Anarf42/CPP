@@ -28,6 +28,7 @@ class Animal
         virtual ~Animal();//destructor
 		std::string		getType(void) const;
         virtual void	makeSound(void) const = 0;
+        
 };
 
 #endif
