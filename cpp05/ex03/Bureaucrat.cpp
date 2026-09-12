@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:49:15 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/19 20:29:07 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:00:25 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	Bureaucrat::executeForm(const AForm& form) const
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	
 }

@@ -6,7 +6,7 @@
 #    By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/18 18:49:22 by anruiz-d          #+#    #+#              #
-#    Updated: 2026/08/18 10:59:11 by anruiz-d         ###   ########.fr        #
+#    Updated: 2026/09/12 10:54:11 by anruiz-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ $(NAME)	:	$(OBJ_FILES)
 
 # -- Object File Rule -- #
 
-$(DIR_OBJS)/%.o: %.cpp
+$(DIR_OBJS)/%.o: %.cpp Bureaucrat.hpp Form.hpp
 			$(MKDIR) $(DIR_OBJS)
 			$(CC) $(FLAGS) -c $< -o $@
 
