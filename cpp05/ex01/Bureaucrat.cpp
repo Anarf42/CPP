@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:49:15 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/14 13:42:00 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:20:49 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat() :  _Name("Default"), _Grade(3)
 	std::cout << "Default constructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _Name(name), _Grade(grade)
+Bureaucrat::Bureaucrat(std::string const& name, int grade) : _Name(name), _Grade(grade)
 {
 	if (_Grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -26,11 +26,11 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _Name(name), _Grade
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _Name(copy._Name), _Grade(copy._Grade)
+Bureaucrat::Bureaucrat(Bureaucrat const& copy) : _Name(copy._Name), _Grade(copy._Grade)
 {
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
+Bureaucrat& Bureaucrat::operator=(Bureaucrat const& copy)
 {
 	if (this != &copy)
 		_Grade = copy._Grade;
@@ -42,7 +42,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor" << std::endl;
 }
 
-const	std::string&	Bureaucrat::getName() const
+std::string const&	Bureaucrat::getName() const
 {
 	return (_Name);
 }
@@ -66,12 +66,12 @@ void	Bureaucrat::decrementGrade(void)
 	_Grade++;
 }
 
-const	char* Bureaucrat::GradeTooHighException::what() const throw()
+char const* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";	
 }
 
-const	char* Bureaucrat::GradeTooLowException::what() const throw()
+char const* Bureaucrat::GradeTooLowException::what() const throw()
 {
 		return "Grade too low!";
 }

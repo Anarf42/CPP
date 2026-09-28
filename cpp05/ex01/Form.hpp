@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 14:52:49 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/14 13:20:27 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:22:32 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,37 @@
 class Bureaucrat;
 class Form {
 	private:
-		const	std::string _Name;
-		const	int			_GradeToSign;
-		const	int			_GradeToExecute;
+		std::string const _Name;
+		int	const		_GradeToSign;
+		int	const		_GradeToExecute;
 		bool				_Signed;
 	public:
 		Form();	//Default constructor
-		Form(const std::string& name, int GradeToSign, int GradeToExecute);
-		Form(const Form& copy); //copy constructor
-        Form& operator=(const Form& copy); // assignament
+		Form(std::string const& name, int GradeToSign, int GradeToExecute);
+		Form(Form const& copy); //copy constructor
+        Form& operator=(Form const& copy); // assignament
 		~Form();	//destructor
 	
-		const	std::string&	getNameForm() const;
+		std::string const&	getNameForm() const;
 		int						getGradeToSign() const;
 		int						getGradeToExecute() const;
 		bool					getSigned() const;
 
-		void	beSigned(const Bureaucrat& bureaucrat);
+		void	beSigned(Bureaucrat const& bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				char const* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				char const* what() const throw();
 		};
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, Form const& form);
 
 #endif

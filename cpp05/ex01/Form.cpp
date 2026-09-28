@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   form.cpp                                           :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 14:52:38 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/14 13:53:50 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:24:21 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form() : _Name("Default"), _GradeToSign(150), _GradeToExecute(150), _Signe
 	std::cout << "Default constructor" << std::endl;
 }
 
-Form::Form(const std::string& name, int GradeToSign, int GradeToExecute) : _Name(name), _GradeToSign(GradeToSign), _GradeToExecute(GradeToExecute), _Signed(false)
+Form::Form(std::string const& name, int GradeToSign, int GradeToExecute) : _Name(name), _GradeToSign(GradeToSign), _GradeToExecute(GradeToExecute), _Signed(false)
 {
 	if (_GradeToSign < 1 || _GradeToExecute < 1)
 		throw Form::GradeTooHighException();
@@ -26,12 +26,12 @@ Form::Form(const std::string& name, int GradeToSign, int GradeToExecute) : _Name
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form& copy) : _Name(copy._Name), _GradeToSign(copy._GradeToSign), _GradeToExecute(copy._GradeToExecute), _Signed(copy._Signed)
+Form::Form(Form const& copy) : _Name(copy._Name), _GradeToSign(copy._GradeToSign), _GradeToExecute(copy._GradeToExecute), _Signed(copy._Signed)
 {
 	
 }
 
-Form& Form::operator=(const Form& copy)
+Form& Form::operator=(Form const& copy)
 {
 	if (this != &copy)
 		_Signed = copy._Signed;
@@ -43,7 +43,7 @@ Form::~Form()
 
 }
 
-const	std::string&	Form::getNameForm(void) const
+std::string const&	Form::getNameForm(void) const
 {
 	return(_Name);
 }
@@ -63,7 +63,7 @@ bool	Form::getSigned(void) const
 	return(_Signed);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
+std::ostream& operator<<(std::ostream& os, Form const& form)
 {
 	os	<< form.getNameForm() 
 		<< ", signed: " << form.getSigned()
@@ -72,17 +72,17 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 	return os;
 }
 
-const	char* Form::GradeTooHighException::what() const throw()
+char const*  Form::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
 }
 
-const	char* Form::GradeTooLowException::what() const throw()
+char const* Form::GradeTooLowException::what() const throw()
 {
 		return "Grade too low!";
 }
 
-void	Form::beSigned(const Bureaucrat& bureaucrat)
+void	Form::beSigned(Bureaucrat const& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _GradeToSign)
 		throw Form::GradeTooLowException();

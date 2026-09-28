@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 14:52:38 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/19 20:09:53 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:43:31 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AForm::AForm() : _Name("Default"), _GradeToSign(150), _GradeToExecute(150), _Sig
 	std::cout << "Default constructor" << std::endl;
 }
 
-AForm::AForm(const std::string& name, int GradeToSign, int GradeToExecute) : _Name(name), _GradeToSign(GradeToSign), _GradeToExecute(GradeToExecute), _Signed(false)
+AForm::AForm(std::string const& name, int GradeToSign, int GradeToExecute) : _Name(name), _GradeToSign(GradeToSign), _GradeToExecute(GradeToExecute), _Signed(false)
 {
 	if (_GradeToSign < 1 || _GradeToExecute < 1)
 		throw AForm::GradeTooHighException();
@@ -26,12 +26,12 @@ AForm::AForm(const std::string& name, int GradeToSign, int GradeToExecute) : _Na
 		throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm& copy) : _Name(copy._Name), _GradeToSign(copy._GradeToSign), _GradeToExecute(copy._GradeToExecute), _Signed(copy._Signed)
+AForm::AForm(AForm const& copy) : _Name(copy._Name), _GradeToSign(copy._GradeToSign), _GradeToExecute(copy._GradeToExecute), _Signed(copy._Signed)
 {
 	
 }
 
-AForm& AForm::operator=(const AForm& copy)
+AForm& AForm::operator=(AForm const& copy)
 {
 	if (this != &copy)
 		_Signed = copy._Signed;
@@ -43,7 +43,7 @@ AForm::~AForm()
 
 }
 
-const	std::string&	AForm::getNameForm(void) const
+std::string const&	AForm::getNameForm(void) const
 {
 	return(_Name);
 }
@@ -63,7 +63,7 @@ bool	AForm::getSigned(void) const
 	return(_Signed);
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& form)
+std::ostream& operator<<(std::ostream& os, AForm const& form)
 {
 	os	<< form.getNameForm() 
 		<< ", signed: " << form.getSigned()
@@ -72,21 +72,21 @@ std::ostream& operator<<(std::ostream& os, const AForm& form)
 	return os;
 }
 
-const	char* AForm::GradeTooHighException::what() const throw()
+char const* AForm::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
 }
 
-const	char* AForm::GradeTooLowException::what() const throw()
+char const* AForm::GradeTooLowException::what() const throw()
 {
 		return "Grade too low!";
 }
 
-const	char* AForm::FormNotSignedException::what() const throw()
+char const* AForm::FormNotSignedException::what() const throw()
 {
 		return "Form not signed.";		
 }
-void	AForm::beSigned(const Bureaucrat& bureaucrat)
+void	AForm::beSigned(Bureaucrat const& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _GradeToSign)
 		throw AForm::GradeTooLowException();

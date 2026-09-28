@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 17:12:57 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/09/09 00:21:45 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/12 13:22:17 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ class Array
 		unsigned	int	size() const;
 };
 
-# include "Array.tpp"
+#include "Array.tpp"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:49:06 by anruiz-d          #+#    #+#             */
-/*   Updated: 2026/08/14 13:39:10 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:19:55 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ class Form;
 class Bureaucrat
 {
 	private:
-		const std::string	_Name;
+		std::string const	_Name;
 		int					_Grade;
 	public:
 		Bureaucrat();	//Default constructor
-		Bureaucrat(const std::string& name, int grade);
-		Bureaucrat(const Bureaucrat& copy); //copy constructor
-        Bureaucrat& operator=(const Bureaucrat& copy); // assignament
+		Bureaucrat(std::string const& name, int grade);
+		Bureaucrat(Bureaucrat const& copy); //copy constructor
+        Bureaucrat& operator=(Bureaucrat const& copy); // assignament
 		~Bureaucrat();	//destructor
 
-		const	std::string&	getName() const;
+		std::string const&	getName() const;
 		int		getGrade() const;
 		
 		void	incrementGrade();
@@ -41,12 +41,12 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				char const* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				char const* what() const throw();
 		};
 };
 
